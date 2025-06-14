@@ -23,9 +23,9 @@ public class Rpg_before_calss {
 	static Monster monster;
 	static Mission m = new Mission();
 	static WeaponStore w = new WeaponStore();
+	static PotionStore p = new PotionStore();
 
 	public static void main(String[] args) {
-		PotionStore p = new PotionStore();
 		Scanner in = new Scanner(System.in);
 		System.out.println("******* RPG GAME *******");
 		System.out.print("히어로의 이름을 입력하세요: ");
@@ -65,10 +65,7 @@ public class Rpg_before_calss {
 			}
 			}
 			if (hero.level >= 2) {
-				m.mission2(hero, w);
-			}
-			if (hero.level >= 3 && monster.name.equals("들개")) {
-				m.mission3(hero);
+				m.mission2(hero);
 			}
 		} while (hero.hp > 0);
 	}
@@ -105,7 +102,7 @@ public class Rpg_before_calss {
 		}
 		System.out.println(monster.name + "와의 전투를 시작합니다.");
 		while (monster.hp > 0) {
-			monster.attacked(hero.attack());
+			monster.attacked(hero.attack(monster.name));
 			if (monster.hp <= 0) {
 				hero.experience += monster.experience;
 				hero.mp += 10;
@@ -120,6 +117,9 @@ public class Rpg_before_calss {
 					hero.experience += 50;
 					System.out.println("경험치가 50 올랐습니다!");
 				}
+				if (hero.level >= 3 && monster.name.equals("들개")) {
+					m.mission3(hero);
+				}
 				break;
 			}
 			hero.attacked(monster.attack());
@@ -129,7 +129,6 @@ public class Rpg_before_calss {
 				if (answer == 1) {
 					hero.hp = 50;
 					System.out.println("부활했습니다!");
-
 				} else {
 					System.out.println("게임을 종료합니다.");
 					System.exit(0);

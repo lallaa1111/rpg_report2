@@ -12,7 +12,7 @@ public class Archer extends Hero {
 	}
 
 	@Override
-	public int attack() {
+	public int attack(String monsterName) {
 		Scanner in = new Scanner(System.in);
 		int sum = level * 10 + power * 30;
 		if (level >= 2 && mp >= 10) {
@@ -26,6 +26,10 @@ public class Archer extends Hero {
 			case 2 -> {
 				sum = level * 10 + power * 30 + 100;
 				mp -= 10;
+				if (monsterName.equals("살쾡이")) {
+					sum += 50;
+					System.out.println("살쾡이가 당신의 공격에 아파합니다.");
+				}
 			}
 			}
 		}

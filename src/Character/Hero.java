@@ -1,17 +1,37 @@
 package Character;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import Main.Mission;
 
 public class Hero extends Character {
 	public int money = 0;
 	public int power, defense, experience = 0;
 
+	private List<String> weaponList = new ArrayList<>();
+
+	public void addWeapon(String weapon) {
+		weaponList.add(weapon);
+	}
+
+	public int countWeapon(String weapon) {
+		return Collections.frequency(weaponList, weapon);
+	}
+
+	public void removeWeapon(String weapon) {
+		for (int i = 0; i < 2; i++) {
+			weaponList.remove(weapon);
+		}
+	}
+
 	public Hero(String name) {
 		this.name = name;
 		level = 1;
 	}
 
-	public int attack() {
+	public int attack(String monsterName) {
 		int sum = level * 10 + power * 30;
 		return sum;
 	}

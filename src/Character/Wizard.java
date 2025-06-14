@@ -13,7 +13,7 @@ public class Wizard extends Hero {
 	}
 
 	@Override
-	public int attack() {
+	public int attack(String monsterName) {
 		Scanner in = new Scanner(System.in);
 		int sum = level * 10 + power * 30;
 		if (level >= 2 && mp >= 15) {
@@ -29,6 +29,10 @@ public class Wizard extends Hero {
 				hp += 10 * level;
 				System.out.println(10 * level + "만큼 치유되었습니다.");
 				mp -= 20;
+				if (monsterName.equals("들개")) {
+					sum += 50;
+					System.out.println("들개가 당신의 공격에 아파합니다.");
+				}
 			}
 			}
 		}
