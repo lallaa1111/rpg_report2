@@ -21,7 +21,7 @@ public class Mission {
 		if (mission2Clear == false && hero.level >= 2
 				&& (hero.countWeapon("비싼 연습용 목검") >= 1 || hero.countWeapon("비싼 전투용 검") >= 1
 						|| hero.countWeapon("묵직한 마법봉") >= 1 || hero.countWeapon("아주 좋은 마법봉") >= 1
-						|| hero.countWeapon("사냥용 활") >= 1 || hero.countWeapon("함의 활") >= 1)) {
+						|| hero.countWeapon("사냥용 활") >= 1 || hero.countWeapon("힘의 활") >= 1)) {
 			hero.experience += 20;
 			System.out.println("미션을 완료하였습니다!(보상: 경험치 20)");
 			mission2Clear = true;
