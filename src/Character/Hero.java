@@ -1,5 +1,7 @@
 package Character;
 
+import Main.Mission;
+
 public class Hero extends Character {
 	public int money = 0;
 	public int power, defense, experience = 0;
@@ -36,6 +38,7 @@ public class Hero extends Character {
 			money += level * 50;
 			System.out.printf("보상으로 돈 %d원을 받습니다!\n", level * 50);
 			experience = 0;
+			Mission.mission(this);
 		}
 	}
 }

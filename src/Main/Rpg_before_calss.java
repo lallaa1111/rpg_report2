@@ -21,10 +21,11 @@ public class Rpg_before_calss {
 	static int job;
 	static Hero hero;
 	static Monster monster;
+	static Mission m = new Mission();
+	static WeaponStore w = new WeaponStore();
 
 	public static void main(String[] args) {
 		PotionStore p = new PotionStore();
-		WeaponStore w = new WeaponStore();
 		Scanner in = new Scanner(System.in);
 		System.out.println("******* RPG GAME *******");
 		System.out.print("히어로의 이름을 입력하세요: ");
@@ -62,6 +63,12 @@ public class Rpg_before_calss {
 			case 3 -> {
 				w.choice(hero);
 			}
+			}
+			if (hero.level >= 2) {
+				m.mission2(hero, w);
+			}
+			if (hero.level >= 3 && monster.name.equals("들개")) {
+				m.mission3(hero);
 			}
 		} while (hero.hp > 0);
 	}
@@ -113,11 +120,7 @@ public class Rpg_before_calss {
 					hero.experience += 50;
 					System.out.println("경험치가 50 올랐습니다!");
 				}
-				if (hero.level >= 2 && monster.name == "들개") {
-					;
-				}
-				if (her)
-					break;
+				break;
 			}
 			hero.attacked(monster.attack());
 			if (hero.hp <= 0) {
